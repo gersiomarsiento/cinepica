@@ -112,12 +112,7 @@ const connectSrcUrls = [
     "https://*.media-imdb.com",
     "https://*.api.unisvg.com",
     "https://*.api.iconify.com",
-    "https://www.api.simplesvg.com",
-    "https://www.api.unisvg.com",
-    "https://www.api.iconify.com",
-    "https://www.api.simplesvg.com",
-    "https://www.w3.org",
-
+    "https://*.api.simplesvg.com"
 ];
 const fontSrcUrls = [
     "https://*.gstatic.com",
