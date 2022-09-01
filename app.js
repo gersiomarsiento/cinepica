@@ -112,10 +112,14 @@ const connectSrcUrls = [
     "https://*.media-imdb.com",
     "https://*.api.unisvg.com",
     "https://*.api.iconify.com",
-    "https://*.api.simplesvg.com"
+    "https://*.api.simplesvg.com",
+    "https://ka-f.fontawesome.com",
+
 ];
 const fontSrcUrls = [
     "https://*.gstatic.com",
+    "https://ka-f.fontawesome.com",
+
 ];
 
 app.use(
