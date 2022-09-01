@@ -6,13 +6,14 @@ const Review = require('./models/review');
 
 module.exports.isLoggedIn = (req, res, next) => {
     if(!req.isAuthenticated()) {
+        req.session.returnTo = req.originalUrl;
         req.flash('error', 'Por favor, inicia sesión');
         return res.redirect('/users/login');
     } 
     next()
 };
-// // import JOI validation schema from schemas.js and create a fn to validate
-module.exports.validateFilm = (req, res, next) => {
+
+module.exports.validateFilm = (req, res, next) => { // import JOI validation schema from schemas.js and create a fn to validate
     const { error } = filmValidationSchema.validate(req.body);
     if(error){
         const msg = error.message;

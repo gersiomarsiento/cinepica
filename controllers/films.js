@@ -26,7 +26,7 @@ module.exports.createFilm = async (req, res, next)=>{
     film.imagesGallery = req.files['film[imagesGallery]'].map(file => ({ url: file.path, filename: file.filename}));
     film.author = req.user._id;
     await film.save();
-    console.log(film.imagesGallery);
+    console.log(film);
     req.flash('success', 'La película ha sido creada correctamente');
     res.redirect(`/films/${film._id}`);
 }
@@ -50,11 +50,6 @@ module.exports.showRandomFilm = async (req, res, next)=>{
     res.redirect(`/films/${randomFilm._id}`);
 }
 module.exports.showMap = async (req, res)=>{
-    // const geoData = await geocoder.forwardGeocode({
-    //     query: "Argentina",
-    //     limit: 1
-    // }).send();
-    //res.send(geoData.body.features[0].geometry)
     const films = await Film.find({});
 
     function Country(name, shortName){ //Create Country model
@@ -70,12 +65,6 @@ module.exports.showMap = async (req, res)=>{
             filmCountries.push(new Country(country.name_es, country.code));
         }
     }
-    // filmsList[name], filmsList[image1], filmsList[imdb]
-    // console.log(films.)
-    // for (let film of films) {
-    //     console.log(films.map(x => x.name))
-    // }
-
     for (let film of filmCountries){ //Add +1 on count on each country repetition
         for (let country of countriesWithFilm){
             if(country==film.name||country==film.shortName){
@@ -86,7 +75,8 @@ module.exports.showMap = async (req, res)=>{
         for (let item of rawData){
         film.filmsList.push({title: item.title, imdb: item.imdb, image1: item.coverThumbnail})
        } //CHECK LATER IF I NEED TO REMOVE OR ADD KEY VALUE PAIRS
-    }console.log(filmCountries)
+    }
+    // console.log(filmCountries)
     res.render('films/map', { filmCountries, films })
 };
 module.exports.renderEditForm = async (req, res, next)=>{

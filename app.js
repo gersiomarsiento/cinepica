@@ -3,7 +3,6 @@ if(process.env.NODE_ENV !== 'production'){
 }
 //Requirements
 const express = require('express');
-const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const AppError = require('./utils/AppError');
@@ -17,7 +16,6 @@ const helmet = require('helmet')
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
-const films = require('./seeds/films');
 
 // IMPLEMENT ROUTES 
 const filmsRoutes = require('./routes/films');
@@ -25,43 +23,64 @@ const reviewsRoutes = require('./routes/reviews');
 const usersRoutes = require('./routes/users');
 
 //DB
-
 const MongoStore = require("connect-mongo")
-
-
 //Production connection to MongoAtlas DB  VS  Development connection to local db
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/cinepica-app'
 
 mongoose.connect(dbUrl)
-//Connect to Database, log if error 
-const db = mongoose.connection;
+
+const db = mongoose.connection; //Connect to Database, log if error 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', ()=>{
     console.log('Database Connected');
 })
 
+const app = express();
 
-//EJS-Mate to use layout boilerplates
-app.engine('ejs', ejsMate)
-//Set up paths and views
-app.set('view engine', 'ejs');
+app.engine('ejs', ejsMate) //EJS-Mate to use layout boilerplates
+app.set('view engine', 'ejs'); //Set up paths and views
 app.set('views', path.join(__dirname, 'views'));
 
 //*********MIDDLEWARE*********:
-//urlencoded extended true to enable calling req.body and parsing it
-app.use(express.urlencoded({ extended:true }));
-//MethodOverride -- Middleware that allows the usage of PUT and DELETE override for POST requests (update)
-app.use(methodOverride('_method'))
-//Define PUBLIC folder 
-app.use(express.static(path.join(__dirname, 'public')));
-//Morgan: displays info on each request
-app.use(morgan('tiny'));
-//Sanitize: prohibits the use of strange chars such as $ or . while querying
-app.use(mongoSanitize());
+
+app.use(express.urlencoded({ extended:true })); //urlencoded extended true to enable calling req.body and parsing it
+app.use(methodOverride('_method')) //MethodOverride -- Middleware that allows the usage of PUT and DELETE override for POST requests (update)
+app.use(express.static(path.join(__dirname, 'public'))); //Define PUBLIC folder 
+app.use(morgan('tiny')); //Morgan: displays info on each request
+app.use(mongoSanitize()); //Sanitize: prohibits the use of strange chars such as $ or . while querying
+
+const secret = process.env.SECRET || 'notagoodsecret';
+
+const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    secret,
+    touchAfter: 24 * 60 * 60
+})
+
+store.on("error", function(e) {
+    console.log("Session Store error", e)
+})
+//Session
+const sessionConfig = { 
+    store,
+    name: "session",
+    secret,
+    resave: false, 
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: true,
+        // secure: true,
+        expires: Date.now() + 1000 * 60 *60 * 24 * 7,
+        maxAge: 1000 * 60 *60 * 24 * 7
+     }
+}
+
+app.use(session(sessionConfig));
+app.use(flash());
 // Helmet security - 11 protective middleware (beware! it forbids usage o resources (fonts, icons, images, scripts, etc) from not whitelisted sites)
 app.use(helmet({contentSecurityPolicy: true, crossOriginEmbedderPolicy: false}));
 
-//Helmet config
+//Helmet config and whitelisting
 const scriptSrcUrls = [
     "https://stackpath.bootstrapcdn.com/",
     "https://api.tiles.mapbox.com/",
@@ -93,12 +112,17 @@ const connectSrcUrls = [
     "https://*.media-imdb.com",
     "https://*.api.unisvg.com",
     "https://*.api.iconify.com",
-    "https://*.api.simplesvg.com"
+    "https://www.api.simplesvg.com",
+    "https://www.api.unisvg.com",
+    "https://www.api.iconify.com",
+    "https://www.api.simplesvg.com",
+    "https://www.w3.org",
+
 ];
 const fontSrcUrls = [
     "https://*.gstatic.com",
-
 ];
+
 app.use(
     helmet.contentSecurityPolicy({
         directives: {
@@ -121,35 +145,6 @@ app.use(
     })
 );
 
-const secret = process.env.SECRET || 'notagoodsecret';
-
-const store = MongoStore.create({
-    mongoUrl: dbUrl,
-    secret,
-    touchAfter: 24 * 60 * 60
-})
-
-store.on("error", function(e) {
-    console.log("Session Store error", e)
-})
-//Session
-const sessionConfig = { 
-    store,
-    name: "session",
-    secret,
-    resave: false, 
-    saveUninitialized: true,
-    cookie: {
-        httpOnly: true,
-        // secure: true,
-        expires: Date.now() + 1000 * 60 *60 * 24 * 7,
-        maxAge: 1000 * 60 *60 * 24 * 7
-     }
-}
-app.use(session(sessionConfig));
-app.use(flash());
-
-
 //Passport
 app.use(passport.initialize());
 app.use(passport.session());
@@ -168,9 +163,9 @@ app.use((req, res, next) => {
 })
 
 //Import Routes to render
+app.use('/users', usersRoutes);     
 app.use('/films', filmsRoutes);
 app.use('/films/:id/reviews', reviewsRoutes);
-app.use('/users', usersRoutes);
 
 
 // ***** ROUTES *****

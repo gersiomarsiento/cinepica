@@ -7,7 +7,6 @@ const multer = require('multer');
 const { storage } = require('../cloudinary')
 const upload = multer({ storage });
 
-// ADD IMAGE2 LATER ON?
 const uploadMany = upload.fields([{name: 'film[image1]', maxCount: 1}, /*ADD IMAGE 2 LATER */ {name: 'film[imagesGallery]', minCount: 4, maxCount: 20}])
 
 router.route('/')
@@ -26,7 +25,5 @@ router.route('/:id')
     .delete(isLoggedIn, isAuthor, catchAsyncError(films.deleteFilm)); //Delete a film
 
 router.get('/:id/edit', isLoggedIn, isAuthor, catchAsyncError(films.renderEditForm)); //Edit a film
-
-
 
 module.exports = router

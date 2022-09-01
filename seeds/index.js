@@ -34,13 +34,11 @@ const seedDB = async ()=>{
             director:  film.director,
             actores:  film.actores,
             image1:  film.image1,
-            // image2:  film.image2,
             imagesGallery: film.imagesGallery,
             link:  film.link,
             imdb: film.imdb, 
             filmPath: film.filmPath,
-            //CHANGE THE AUTHOR LATER ON - This one is Tom
-            author: "6302d684b3c96c1278f48576", 
+            author: "631130921e364db7489507db" //Author gersiomarsiento
         });
         await f.save();    
     }

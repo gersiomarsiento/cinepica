@@ -1,4 +1,3 @@
-const { string } = require('joi');
 const BaseJoi = require('joi');
 const sanitizeHtml = require('sanitize-html');
 
@@ -35,7 +34,6 @@ module.exports.filmValidationSchema = Joi.object({
         director: Joi.array().required(),
         actores: Joi.array(),
         image1: Joi.string().allow('').escapeHTML(),
-        // image2: Joi.string().allow('').escapeHTML(),
         imagesGallery: Joi.array().allow(''),
         description: Joi.string().required().escapeHTML(), 
         link: Joi.string().allow('').escapeHTML(),

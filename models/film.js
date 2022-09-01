@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-const review = require('./review');
-const Review = require('./review')
+const Review = require('./review');
 const Schema = mongoose.Schema;
 
 
@@ -71,11 +70,6 @@ const FilmSchema = new Schema({
     type: String, 
     required: true
 },
-
-  // image2: {
-  //   type: String,
-  //   required: true
-  // },
   imagesGallery: [ImagesGallerySchema],
   description: {
     type: String,
