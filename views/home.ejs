@@ -1,0 +1,56 @@
+<%- layout("layouts/boilerplate") %> 
+
+<div class="home-bg">
+    <h5>El terrible y maravilloso...</h5>
+    <h4>...momento de elegir una película...</h4>
+    <h1 class="h1-text">¿Qué puedo ver hoy?</h1>
+    <p class="">Para responder esa simple pero peligrosa pregunta llega <em><strong>Cinépica</strong></em>.<br><br>
+        Cine para pensar. Cine de autor. Cine que sondea límites.</p><br>
+    <a href="/films" class="btn-home">¡Verlo TODO!</a>
+</div>
+<div class="sections-container">
+    <a href="/films"><div class="section" id="section-list"><h2>Listado</h2></div></a>
+    <a href="/films/random-film"><div class="section" id="section-random"><h2>¡Al azar!</h2></div></a>
+    <a href="/films/map"><div class="section" id="section-map"><h2>Mapa</h2></div></a>
+    <!-- <div class="section"><h2>Filtrar</h2></div> -->
+</div>
+
+<div class="pictures-container">
+</div>
+
+<div class="section-form">
+    <div class="contact-form-container">
+        <h2>¿Sugerencias? ¿Recomendaciones?</h2>
+        <p>En <em><strong>Cinépica</strong></em>  siempre estamos abiertos a escuchar opiniones. <br><br>Nos encantaría saber qué te gusta, qué no, en qué crees que podríamos mejorar o simplemente escuchar lo que sea que tengas para contarnos. </p>
+        <form action="" id="contact-form">
+            <label for="name">Nombre</label>
+            <input type="text" class="contact-form-input" name="name" placeholder="Ej: María José Salvatierra" value="" required>
+            <label for="email">Email</label>
+            <input type="email" class="contact-form-input" name="email" placeholder="Ej: midireccion@correo.com" value="" required>
+            <label for="message">Mensaje</label>
+            <textarea class="contact-form-input" style="width: 90%;" rows="6" type="textarea" name="message" value="" placeholder="Ej: ¡Los queremos mucho!" required></textarea>
+            <p>Tambien podes contactarnos directamente a través de las siguientes redes sociales:
+            </p>
+            <div id="social-media-container">
+                <a href="https://www.instagram.com/cinepica">
+                    <iconify-icon icon="akar-icons:instagram-fill" width="40" height="40"></iconify-icon><div> @cinepica</div>
+                    
+                </a>
+                <a href="https://www.facebook.com/cinepica">
+                    <iconify-icon icon="bi:facebook" width="40" height="40"></iconify-icon><div>
+                    /Cinepica </div>
+                </a>
+                <a href="mailto:cinepica.films@gmail.com">
+                    <iconify-icon icon="ant-design:mail-twotone" width="40" height="40"></iconify-icon><div>
+                    cinepica.films@gmail.com</div>
+                </a>
+            </div>
+            <button class="submit-button">✔ ENVIAR</button>
+        </form>
+    </div>
+</div>
+
+<footer class="mt-auto text-white-50">
+    <p>&copy; 2020 </p>
+</footer>
+

@@ -1,0 +1,70 @@
+<%- layout("layouts/boilerplate") %> 
+
+<a id="back-button" href="/films">↻ <span>VOLVER</span></a>
+<div class="film-container moving-glow">
+    <div class="">
+        <h1>Agregar película</h1>
+        <form class="film-form" action="/films" method="POST" enctype="multipart/form-data">
+            
+            <label for="title">Título</label>
+            <input type="text" name="film[title]" id="title" placeholder="Ej: El Señor de los Anillos" value="" >
+            
+            <label for="alternateName">Títulos Alternativos</label>
+            <input type="text" name="film[alternateName]" id="alternateName" placeholder="Ej: The Lord of the Rings" value="">
+            <input type="text" name="film[alternateName]" id="" placeholder="Ej: Il Signore degli Anelli" value="">
+            <input type="text" name="film[alternateName]" id="" placeholder="Ej: Властелин колец" value="">
+            
+            <label for="form-genres">Géneros</label>
+            <div id="form-genres">
+                <% for (let genre of allGenres){ %>
+                    <input type="checkbox" name="film[genres]" id="<%=genre%>" value="<%=genre%>">
+                    <label for="<%=genre%>"> <%=allGenresSpa[allGenres.indexOf(genre)]%> </label>
+                <% } %>
+            </div>
+            
+            <label for="country">Países</label>
+            <input type="text" name="film[country]" id="country" placeholder="Ej: Alemania" value="" required>
+            <input type="text" name="film[country]" id="" value="" placeholder="Ej: Argentina">
+            <input type="text" name="film[country]" id="" value="" placeholder="Ej: Portugal">
+            
+            <label for="runtime">Duración</label>
+            <input type="text" name="film[runtime]" id="runtime" value="" placeholder="Ej: 1h 57min" required>
+            
+            <label for="year">Año</label>
+            <input type="Number" name="film[year]" id="year" value="" placeholder="Ej: 1999" required>
+            
+            <label for="director">Dirección</label>
+            <input type="text" name="film[director]" id="director" value="" placeholder="Ej: Mike Cahill" required>
+            <input type="text" name="film[director]" id="" value="" placeholder="Ej: Gastón Duprat">
+            
+            <label for="actores">Actores/actrices</label>
+            <input type="text" name="film[actores]" id="actores" value="" placeholder="Ej: Leonardo diCaprio" required>
+            <input type="text" name="film[actores]" id="" value="" placeholder="Ej: Toni Colette">
+            <input type="text" name="film[actores]" id="" value="" placeholder="Ej: Erica Rivas">
+            <input type="text" name="film[actores]" id="" value="" placeholder="Ej: Daniel Day-Lewis">
+            <input type="text" name="film[actores]" id="" value="" placeholder="Ej: Meryl Streep">
+            <input type="text" name="film[actores]" id="" value="" placeholder="Ej: Joseph Gordon-Levitt">
+
+            <label for="image1">Imagen 1</label>
+            <input type="file" name="film[image1]" id="image1" value="">
+
+<!--        <label for="image2">Imagen 2</label>
+            <input type="file" name="film[image2]" id="image2" value="" placeholder="Ej: ../posts/film-2.jpg"> -->
+            
+            <label for="imagesGallery">Imágenes para la galería</label>
+            <input type="file" name="film[imagesGallery]" id="imagesGallery" value="" multiple>
+            
+            <label for="description">Descripción</label>
+            <textarea style="width: 90%;" rows="6" type="textarea" name="film[description]" id="description" value="" placeholder="Ej: Una película que intenta ser..." required></textarea>
+            
+            <label for="link">Link</label>
+            <input type="text" name="film[link]" id="link" value="" placeholder="Ej: Link">
+            
+            <label for="imdb">IMDb ID</label>
+            <input type="text" name="film[imdb]" id="imdb" value="" placeholder="Ej: tt0411008">
+            
+            <br>
+            <button class="submit-button">✔ CONFIRMAR</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="carousel-wrapper">
+    <div class="carousel">
+        <% film.imagesGallery.forEach((img, index) => { %>
+        <img class="carousel__photo <%- index===0? 'initial' : "" %> " src="<%= img.url %>"> 
+        <% }) %>             
+        <div class="carousel__button--next"></div>
+        <div class="carousel__button--prev"></div>
+    </div>
+</div>
+
+<script src="/scripts/carousel.js"></script>

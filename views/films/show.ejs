@@ -1,0 +1,117 @@
+<%-layout("layouts/boilerplate")%> 
+
+<a id="back-button" href="/films">↻ VOLVER</a>
+<% if (currentUser && film.author.equals(currentUser._id)) { %>
+  <a href="/films/<%=film._id%>/edit" id="edit-button">📄 EDITAR</a>
+  <form  action="/films/<%=film._id%>?_method=DELETE" method="POST">
+      <button id="delete-button">✖ ELIMINAR</button>
+  </form>
+<% } %>
+
+<div class="film-container moving-glow">
+    <!-- IMAGE -->
+    <div class="film-image">
+      <img src="<%=film.image1%>"/>
+    </div>
+    <div class="film-info">
+
+      <!-- TITLE -->
+      <h1><%=film.title.charAt(0).toUpperCase(0) + film.title.slice(1) %></h1>
+      <ul>
+        <% if (film.alternateName!=0){%>
+        <li class="film-info-category">
+
+          <!-- ALTERNATE NAME -->
+          <%= (film.alternateName[0] && "También conocida como:" )%> 
+          <ul>
+            <% if (typeof film.alternateName == "object") {for (let altname of (film.alternateName)){%>
+            <li>
+              <%= altname.charAt(0).toUpperCase(0) + altname.slice(1) %>
+            </li>
+            <%}}else{%>
+            <li><%= film.alternateName%></li>
+            <%}%>
+          </ul>
+          <% } %>
+        </li>
+        <li class="film-info-category">
+
+          <!-- GENRES -->
+          Géneros:
+          <ul>
+            <% if (film.genres.length >1 && typeof film.genres == "object") {for (let genre of (film.genres)){%>
+            <li><%= genre.charAt(0).toUpperCase(0) + genre.slice(1) %></li>
+            <%}}else if (typeof film.genres == "string"){%>
+            <li>
+              <%=film.genres.charAt(0).toUpperCase()+film.genres.slice(1)%>
+            </li>
+            <%} else {%>
+            <li>
+              <%=film.genres[0].charAt(0).toUpperCase()+film.genres[0].slice(1)%>
+            </li>
+            <%}%>
+          </ul>
+        </li>
+        <li class="film-info-category">
+
+          <!-- COUNTRY -->
+          Origen:
+          <ul>
+            <% if (typeof film.country == "object") {for (let pais of (film.country)){%>
+            <li><%= pais.charAt(0).toUpperCase(0) + pais.slice(1) %></li>
+            <%}}else{%>
+            <li><%= film.country%></li>
+            <%}%>
+          </ul>
+        </li>
+        <li class="film-info-category">Duración: <ul><li><%=film.runtime%></li></ul>
+        </li>
+        <li class="film-info-category">Año: <ul><li><%=film.year%></li></ul></li>
+        <li class="film-info-category">
+
+          <!-- DIRECTOR -->
+          Dirección:
+          <ul>
+            <% if (typeof film.director == "object") {for (let dir of (film.director)){%>
+            <li><%= dir.charAt(0).toUpperCase(0) + dir.slice(1) %></li>
+            <%}}else{%>
+            <li><%= film.director%></li>
+            <%}%>
+          </ul>
+        </li>
+        <li class="film-info-category">
+
+          <!-- ACTORES -->
+          Elenco:
+          <ul>
+            <% if (typeof film.actores == "object") {for (let act of (film.actores)){%>
+            <li><%= act.charAt(0).toUpperCase(0) + act.slice(1) %></li>
+            <%}}else{%>
+            <li><%= film.actores%></li>
+            <%}%>
+          </ul>
+        </li>
+        <br>
+        <li class="film-info-category"><%=film.description%>
+          <!-- DESCRIPTION -->
+        </li>
+        <!-- BORRAR AUTOR DESPUES -->
+        <li>Creado por <%= film.author.username %> </li>
+        <li id="rating-link-container">
+          <!-- IMDB RATING API -->
+          <span class="imdbRatingPlugin" data-user="ur9121736" data-title="<%=film.imdb%>" data-style="p2">
+            <a href="https://www.imdb.com/title/<%=film.imdb%>/?ref_=plg_rt_1"><img src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/images/imdb_38x18.png" alt="<%=film.title%> (<%=film.year%>) on IMDb" />
+            </a>
+          </span>
+          <span class="film-links">
+            <!-- LINK -->
+            <a href="<%=film.link%>">Ver online🎬</a>
+          </span>
+        </li>
+      </ul>
+    </div>
+    <% if (film.imagesGallery.length >= 4) { %>
+      <%- include('../partials/carousel-galleries') %> 
+    <% } %>
+    <%- include('../partials/reviews') %> 
+</div>

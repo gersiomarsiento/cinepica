@@ -1,0 +1,32 @@
+<div class="filters-container" id="filters-container">
+  <nav class="filters-navbar" id="filters-navbar">
+    <div class="filter-navlinks">
+      <p>Filtrar por:</p>
+      <div id="filter-selector">
+        <!-- ONE FILTER PER EACH OF THE FILTER CATEGORIES -->
+        <% for (let category of filterCategories){ %>
+          <ul class="filter-by <%= (category=="director" && "active") %>">
+            <h3 class="filter-by-title">
+              <span class="filter-by-button" onclick="prevFilter()">◀</span>
+              <%= filterCategoriesSpa[filterCategories.indexOf(category)] %> 
+              <span class="filter-by-button" onclick="nextFilter()">▶</span>
+            </h3>
+            <button class="scroll-up-filter" onclick="scrollUpFilter()">▲</button>
+            <!-- LOOP OVER FILTERED CATEGORY ELEMENTS -->
+            <div class="filter-elements-container">
+              <% for (let value of new Set(films.flatMap(x => x[category]).sort())) { %>
+                <%if (value == "" || value == null) {%>
+                  <% continue; %>
+                <%} else {%>
+                  <a class="filter-element display-none" onclick="filterFilmsList(`<%=category%>`,`<%= value %>`);showFilters()">
+                    <%= category=="genres"? value.charAt(0).toUpperCase(0) + value.slice(1) : value %>
+                  </a>
+              <% }} %>
+            </div>
+            <button class="scroll-down-filter" onclick="scrollDownFilter()">▼</button>
+          </ul>
+        <% } %>
+      </div>
+    </div>
+  </nav>
+</div>

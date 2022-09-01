@@ -1,0 +1,160 @@
+
+/* NAVBAR START */
+/* Hamburger Icon */
+.hamburger, .user-nav{
+    z-index: 4;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-left: 0.67em;
+    cursor: pointer;
+  }
+  
+  .hamburger {
+    position: fixed;
+    left: 2%;
+    top: 2%;
+  }
+  
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--color4);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .hamburger:hover .bar{
+  background-color: var(--color2);
+  }
+  
+  .rotate45{
+    transform: rotate(45deg) translateY(6px);
+  }
+  
+  .rotate135{
+    transform: rotate(135deg) translateY(6px);
+  }
+  
+  .user-nav {
+    position: fixed;
+    right: 2%;
+    top: 1%;
+    overflow: hidden;
+    background-color: var(--color4);
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: right;
+    border-radius: 10px;
+    /* background-attachment: fixed; */
+    padding: 2px;
+    
+  }
+  
+  .user-nav > .collapsible{
+    max-height: 0;
+    max-width: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: max-height .2s ease 0s, max-width .5s ease .3s, visibility .8s ease 0s, opacity .8s ease 0s;
+  }
+
+  #user-btn-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .user-nav>a{
+    max-height: 500px;
+    max-width: 500px;
+    transition: max-width .2s ease 0s, max-height .4s ease .3s;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color3);
+    border-radius: 6px;
+  }
+  
+  .user-nav>a:hover {
+    transition: 0.2s;
+    background-color: var(--color3);
+    color: white;
+  }
+  
+  /* Navbar starts hidden */
+  .navbar {
+    visibility: hidden;
+    position: fixed;
+    opacity: 0;
+    height: 100%;
+    width: 0%;
+    top: 0;
+    z-index: 3;
+    color: var(--color4);
+    text-decoration: none;
+    background: var(--color3);
+    text-align: start;
+    transition: .1s, opacity .2s;
+  }
+  
+  /* Class to show navbar */
+  .display-navbar{
+    opacity: 1;
+    visibility: visible;
+    transition: width .3s, opacity .2s;
+    width: 100%;
+  }
+  
+  .display-flex {
+    display: flex;
+  }
+  
+  .display-block {
+    display: block !important;
+  }
+  
+  .display-none {
+    display: none;
+  }
+  
+  .navlinks-container{
+    height: 100%;
+    display: flex;
+  }
+  
+  .navlinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .navlinks a {
+    margin: 3%;
+    align-self: center;
+    width: 100%;
+  }
+  .navlinks a:hover{
+    width: 44%;
+  } 
+  iconify-icon{
+    vertical-align: middle;
+    margin: 0 4px 0 4px;
+  }
+  
+  nav a, .film-name {
+    color: var(--color4);
+    padding: 10px;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.1rem;
+    transition: 0.2s;
+    cursor: pointer;
+    /* display: none; <-- NO SE POR QUE PUSE ESTO, CHEQUEAR */
+  }
+  
+  /* NAVBAR END */

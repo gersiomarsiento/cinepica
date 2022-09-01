@@ -1,0 +1,78 @@
+<%- layout("layouts/boilerplate") %> 
+<a id="back-button" href="/films/<%=film._id%>">↻ <span>VOLVER</span></a>
+<div class="film-container moving-glow">
+    <div class="film-info">
+        <h1>Editar película</h1>
+        <form class="film-form" action="/films/<%=film._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <label for="title">Título</label>
+            <input type="text" name="film[title]" id="title" placeholder="" value="<%=film.title%>">
+            
+            <label for="alternateName">Títulos Alternativos</label>
+            <input type="text" name="film[alternateName]" id="alternateName" placeholder="" value="<%=film.alternateName[0]%>">
+            <input type="text" name="film[alternateName]" id="" placeholder="" value="<%=film.alternateName[1]%>">
+            <input type="text" name="film[alternateName]" id="" placeholder="" value="<%=film.alternateName[2]%>">
+            
+            <label for="form-genres">Géneros</label>
+            <div id="form-genres">
+                <% for (let genre of allGenres){ %>
+                    <input type="checkbox" name="film[genres]" id="<%=genre%>" value="<%=genre%>" <%=(film.genres.includes(genre) && "checked")%> >
+                    <label for="<%=genre%>"> <%=allGenresSpa[allGenres.indexOf(genre)]%> </label>
+                <% } %>
+            </div>
+            
+            <label for="country">Países</label>
+            <input type="text" name="film[country]" id="country" placeholder="Ej: Alemania" value="<%= film.country[0]%>">
+            <input type="text" name="film[country]" id="" placeholder="" value="<%= film.country[1]%>">
+            <input type="text" name="film[country]" id="" placeholder="" value="<%= film.country[2]%>">
+            
+            <label for="runtime">Duración</label>
+            <input type="text" name="film[runtime]" id="runtime" placeholder="Ej: 1h 57min" value="<%= film.runtime %>">
+            
+            <label for="year">Año</label>
+            <input type="Number" name="film[year]" id="year" placeholder="Ej: 1999" value="<%= film.year %>">
+            
+            <label for="director">Dirección</label>
+            <input type="text" name="film[director]" id="director" placeholder="Ej: Mike Cahill" value="<%= film.director[0] %>">
+            <input type="text" name="film[director]" id="" placeholder="" value="<%= film.director[1] %>">
+            
+            <label for="actores">Actores/actrices</label>
+            <input type="text" name="film[actores]" id="actores" placeholder="Ej: Leonardo diCaprio, Leonardo Sbaraglia, Toni Colette" value="<%= film.actores[0] %>">
+            <input type="text" name="film[actores]" id="" placeholder="" value="<%=film.actores[1]%>">
+            <input type="text" name="film[actores]" id="" placeholder="" value="<%=film.actores[2]%>">
+            <input type="text" name="film[actores]" id="" placeholder="" value="<%=film.actores[3]%>">
+            <input type="text" name="film[actores]" id="" placeholder="" value="<%=film.actores[4]%>">
+            <input type="text" name="film[actores]" id="" placeholder="" value="<%=film.actores[5]%>">
+            
+            <label for="image1">Imagen 1</label>
+            <input type="text" name="film[image1]" id="image1" value="<%= film.image1 %>">
+            
+            <!-- <label for="image2">Imagen 2</label>
+            <input type="text" name="film[image2]" id="image2" placeholder="Ej: ../posts/films-2.jpg" value="<%= film.image2 %>"> -->
+               
+            <label for="imagesGallery">Añadir imágenes para la galería</label>
+            <input type="file" name="film[imagesGallery]" id="imagesGallery" value="" multiple>
+
+            <p>Seleccionar las fotos que quieres eliminar</p>
+            <div class="img-to-thumbnail-container">
+                <% film.imagesGallery.forEach((img, index) => { %>
+                    <img src="<%= img.thumbnail %>" class="gallery-thumbnail" alt=""> 
+                    <div>
+                        <input type="checkbox" id="image-<%=index%>" name="deleteImages[]" value="<%=img.filename%>" >
+                    </div>
+                    <label for="image-<%=index%>"></label>
+                <% }); %>  
+            </div>
+
+            <label for="description">Descripción</label>
+            <textarea style="width: 90%;" rows="6" type="textarea" name="film[description]" id="description" placeholder="Ej: Una película que intenta ser..." ><%=film.description%></textarea>
+            
+            <label for="link">Link</label>
+            <input type="text" name="film[link]" id="link" placeholder="Ej: Link" value="<%= film.link %>">
+            
+            <label for="imdb">IMDb ID</label>
+            <input type="text" name="film[imdb]" id="imdb" value="<%= film.imdb %>" placeholder="Ej: tt0411008">
+            <br>
+            <button class="submit-button">✔ CONFIRMAR</button>
+        </form>
+    </div>
+</div>
