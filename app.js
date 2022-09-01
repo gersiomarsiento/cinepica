@@ -90,7 +90,10 @@ const connectSrcUrls = [
     "https://a.tiles.mapbox.com/",
     "https://b.tiles.mapbox.com/",
     "https://events.mapbox.com/",
-    "https://*.media-imdb.com"
+    "https://*.media-imdb.com",
+    "https://*.api.unisvg.com",
+    "https://*.api.iconify.com",
+    "https://*.api.simplesvg.com"
 ];
 const fontSrcUrls = [
     "https://*.gstatic.com",

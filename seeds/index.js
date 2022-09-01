@@ -2,9 +2,13 @@
 const mongoose = require('mongoose');
 const films = require('./films.js');
 const Film = require('../models/film.js');
+if(process.env.NODE_ENV !== 'production'){
+    require('dotenv').config()
+}
 
 //Connect to mongoose
-mongoose.connect('mongodb://localhost:27017/cinepica-app')
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/cinepica-app'
+mongoose.connect(dbUrl)
 
 //Connect to Database, log if error 
 const db = mongoose.connection;
