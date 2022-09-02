@@ -558,6 +558,11 @@ span.rating{
   object-fit: contain;
 }
 
+.footer-content {
+  text-align: start;
+  padding: 6px;
+}
+
 .error-box {
   height: 500px;
   writing-mode: vertical-lr;
