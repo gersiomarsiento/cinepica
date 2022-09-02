@@ -126,11 +126,14 @@ html * {
   background: linear-gradient(135deg, black,var(--color1));
   text-align: -webkit-center;
   align-content: center;
+  display: grid;
+  place-items: center;
   padding: 30px 0 0px 0;
   color: aliceblue;
 }
 .contact-form-container {
   width: 70%;
+  text-align: center;
 }
 .contact-form-input{
   background-color: #272727;
@@ -158,9 +161,14 @@ html * {
 }
 
 /* FORM START */
-.film-form, #contact-form, #about-container{
+.film-form, #about-container{
   padding: 10px 40px 40px 40px;
   text-align: center;
+}
+#contact-form {
+  padding: 10px 0px 40px 00px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 #form-genres{
@@ -338,20 +346,16 @@ input:not([value=""]){
   display: inline-block;
   text-decoration: none;
   transition: all 1s;
+  text-align: center;
+  color: var(--color4);
+  position: relative;
+  z-index: 1;
 }
 
 #cinepica-title:hover{
   transform:  scale(1.2);
   color: var(--color1);
   text-shadow: 0 0 2px #000000, 0 0 15px #8737D8;
-}
-
-
-#cinepica-title {
-  text-align: center;
-  color: var(--color4);
-  position: relative;
-  z-index: 2;
 }
 
 li {

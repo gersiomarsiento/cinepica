@@ -137,9 +137,7 @@
     align-self: center;
     width: 100%;
   }
-  .navlinks a:hover{
-    width: 44%;
-  } 
+
   .fa-2x{
     vertical-align: middle;
     margin: 0 4px 0 4px;
