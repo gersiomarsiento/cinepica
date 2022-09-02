@@ -11,22 +11,21 @@
         <a href="/users/login" class="collapsible">Iniciar Sesión</a>
       <% } %> 
       <a href="#" id="user-btn-container">
-      <% if(currentUser){ %>
-        <span> <%= currentUser.username %> </span>
-       <% } %>  
-       <i class="fa-brands fa-facebook"></i>
-       <i class="fa-regular fa-user"></i>
-       <iconify-icon icon="carbon:user-avatar-filled-alt" width="40" height="40"></iconify-icon></a>
+        <% if(currentUser){ %>
+          <span> <%= currentUser.username %> </span>
+        <% } %>  
+        <i class="fa-regular fa-user fa-2x"></i>
+      </a>
     </div>
 
     <nav class="navbar" id="navbar">
       <div class="navlinks-container">
         <div class="navlinks">
-          <a href="/films"><iconify-icon icon="emojione:film-projector" width="30" height="30"></iconify-icon> Lista de Películas <iconify-icon icon="emojione:film-projector" width="30" height="30"></iconify-icon></a>
-          <a href="/films/random-film"><iconify-icon icon="fa-solid:random" width="25" height="25"></iconify-icon> Película al azar <iconify-icon icon="fa-solid:random" width="25" height="25"></iconify-icon></a>
-          <a href="/films/map"><iconify-icon icon="emojione-v1:globe-showing-americas" width="30" height="30"></iconify-icon> Mapa del Cine <iconify-icon icon="emojione-v1:globe-showing-americas" width="30" height="30"></iconify-icon></a>
-          <a href="/about"><iconify-icon icon="emojione:old-woman-medium-skin-tone" width="30" height="30"></iconify-icon> Quienes Somos <iconify-icon icon="emojione:old-man-dark-skin-tone" width="30" height="30"></iconify-icon></a>
-          <a href="/contact"><iconify-icon icon="akar-icons:chat-approve" width="30" height="30"></iconify-icon> Contacto <iconify-icon icon="akar-icons:chat-error" width="30" height="30"></iconify-icon></a>
+          <a href="/films"><i class="fa-solid fa-tv fa-2x"></i></i> Lista de Películas <i class="fa-solid fa-tv fa-2x"></i></i></a>
+          <a href="/films/random-film"><i class="fa-solid fa-shuffle fa-2x"></i> Película al azar <i class="fa-solid fa-shuffle fa-2x"></i></a>
+          <a href="/films/map"><i class="fa-solid fa-earth-americas fa-2x"></i> Mapa del Cine <i class="fa-solid fa-earth-americas fa-2x"></i></a>
+          <a href="/about"><i class="fa-solid fa-person-circle-question fa-2x"></i> Quienes Somos <i class="fa-solid fa-person-circle-question fa-2x"></i></a>
+          <a href="/contact"><i class="fa-solid fa-comment-dots fa-2x"></i> Contacto <i class="fa-solid fa-comments fa-2x"></i></a>
         </div>
       </div>
     </nav>
