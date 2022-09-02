@@ -7,23 +7,23 @@
         <% for (let category of filterCategories){ %>
           <ul class="filter-by <%= (category=="director" && "active") %>">
             <h3 class="filter-by-title">
-              <span class="filter-by-button" onclick="prevFilter()">◀</span>
+              <span class="filter-by-button filter-by-button-prev" id="filter-by-button-prev">◀</span>
               <%= filterCategoriesSpa[filterCategories.indexOf(category)] %> 
-              <span class="filter-by-button" onclick="nextFilter()">▶</span>
+              <span class="filter-by-button filter-by-button-next" id="filter-by-button-next">▶</span>
             </h3>
-            <button class="scroll-up-filter" onclick="scrollUpFilter()">▲</button>
+            <button class="scroll-up-filter">▲</button>
             <!-- LOOP OVER FILTERED CATEGORY ELEMENTS -->
             <div class="filter-elements-container">
               <% for (let value of new Set(films.flatMap(x => x[category]).sort())) { %>
                 <%if (value == "" || value == null) {%>
                   <% continue; %>
                 <%} else {%>
-                  <a class="filter-element display-none" onclick="filterFilmsList(`<%=category%>`,`<%= value %>`);showFilters()">
+                  <a class="filter-element filter-toggler display-none" data-category="<%= category %>" data-value="<%= value %>">
                     <%= category=="genres"? value.charAt(0).toUpperCase(0) + value.slice(1) : value %>
                   </a>
               <% }} %>
             </div>
-            <button class="scroll-down-filter" onclick="scrollDownFilter()">▼</button>
+            <button class="scroll-down-filter">▼</button>
           </ul>
         <% } %>
       </div>

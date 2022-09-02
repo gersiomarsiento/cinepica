@@ -10,17 +10,19 @@ const showFilters = ()=>{
 document.querySelector("#filter-button").addEventListener('click', showFilters);
 
 //FILTERS functionality (onclick in <A> tag)
-const filterFilmsList = (selectedFilter, filterAttribute)=>{
-  console.log(selectedFilter, filterAttribute);
+const filterFilmsList = (e)=>{
+  const selectedFilter = e.target.getAttribute("data-category");
+  const filterAttribute = e.target.getAttribute("data-value");
   //Set all films to HIDE
   document.querySelectorAll(".film-list-item").forEach((x) => {
     x.classList.add("display-none")
   })
   //Set filtered ones to SHOW
   document.querySelectorAll(`.film-list-item[data-${selectedFilter}*="${filterAttribute}" i]`).forEach((x) => {
-        x.classList.remove("display-none")
-      })
-  }
+    x.classList.remove("display-none")
+  })
+  showFilters()
+}
 
 //******FILTERS SCROLLING MENU START**********
 // FILTER TYPE CHANGE
@@ -67,9 +69,11 @@ let getNewFilters = () => {
   ];
   displayedFilterNames = 0;
 };
+
 let allFilterButtons = [
   ...document.querySelectorAll(".active > div >.filter-element"),
 ];
+
 let displayedFilterNames = 0;
 //FILTERS SCROLL UP AND DOWN
 const scrollUpFilter = () => {
@@ -139,4 +143,15 @@ const scrollDownFilter = () => {
   }
 };
 scrollDownFilter();
+
+// onclick="filterFilmsList(`<%=category%>`,`<%= value %>`);showFilters()"
+// console.log(categoryToPass);
+
+
+// (`${category}`,`${value}`)
+document.querySelectorAll(".filter-toggler").forEach((x)=>{x.addEventListener('click', filterFilmsList)});
+document.querySelectorAll(".filter-by-button-prev").forEach((x)=>{x.addEventListener('click', prevFilter)});
+document.querySelectorAll(".filter-by-button-next").forEach((x)=>{x.addEventListener('click', nextFilter)});
+document.querySelectorAll(".scroll-up-filter").forEach((x)=>{x.addEventListener('click', scrollUpFilter)});
+document.querySelectorAll(".scroll-down-filter").forEach((x)=>{x.addEventListener('click', scrollDownFilter)});
 //******FILTERS SCROLLING MENU END**********
