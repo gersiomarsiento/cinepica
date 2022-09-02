@@ -162,9 +162,9 @@ app.use((req, res, next) => {
 })
 
 //Import Routes to render
-app.use('/users', usersRoutes);     
 app.use('/films', filmsRoutes);
 app.use('/films/:id/reviews', reviewsRoutes);
+app.use('/users', usersRoutes);     
 
 
 // ***** ROUTES *****

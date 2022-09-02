@@ -22,7 +22,6 @@ module.exports.renderNewForm = (req, res)=>{
 module.exports.createFilm = async (req, res, next)=>{
     const film = new Film(req.body.film);
     film.image1 = req.files['film[image1]'][0].path;
-    // ADD IMAGE 2 LATER?
     film.imagesGallery = req.files['film[imagesGallery]'].map(file => ({ url: file.path, filename: file.filename}));
     film.author = req.user._id;
     await film.save();
