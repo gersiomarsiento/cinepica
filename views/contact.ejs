@@ -4,29 +4,6 @@
 <div class="film-container moving-glow">
     <div id="contact-form-container">
         <h1>¡Estemos en contacto!</h1>
-        <form action="" id="contact-form">
-            <label for="name">Nombre</label>
-            <input type="text" class="contact-form-input" name="name" placeholder="Ej: María José Salvatierra" value="" required>
-            <label for="email">Email</label>
-            <input type="email" class="contact-form-input" name="email" placeholder="Ej: midireccion@correo.com" value="" required>
-            <label for="message">Mensaje</label>
-            <textarea class="contact-form-input" style="width: 90%;" rows="6" type="textarea" name="message" value="" placeholder="Ej: ¡Los queremos mucho!" required></textarea>
-            <p>Tambien podes contactarnos directamente a través de los siguientes métodos:
-            </p>
-            <div id="social-media-container">
-                <a href="https://www.instagram.com/cinepica">
-                    <iconify-icon icon="akar-icons:instagram-fill" width="40" height="40"></iconify-icon><div> @cinepica</div>
-                </a>
-                <a href="https://www.facebook.com/cinepica">
-                    <iconify-icon icon="bi:facebook" width="40" height="40"></iconify-icon><div>
-                    /Cinepica </div>
-                </a>
-                <a href="mailto:cinepica.films@gmail.com">
-                    <iconify-icon icon="ant-design:mail-twotone" width="40" height="40"></iconify-icon><div>
-                    cinepica.films@gmail.com</div>
-                </a>
-            </div>
-            <button class="submit-button">✔ ENVIAR</button>
-        </form>
+        <%-include("./partials/contact-form")%> 
     </div>
 </div>
