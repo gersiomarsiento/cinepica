@@ -140,7 +140,7 @@
   .navlinks a:hover{
     width: 44%;
   } 
-  iconify-icon{
+  .fa-2x{
     vertical-align: middle;
     margin: 0 4px 0 4px;
   }
