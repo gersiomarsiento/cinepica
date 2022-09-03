@@ -7,11 +7,11 @@
         <% for (let category of filterCategories){ %>
           <ul class="filter-by <%= (category=="director" && "active") %>">
             <h3 class="filter-by-title">
-              <span class="filter-by-button filter-by-button-prev" id="filter-by-button-prev">◀</span>
+              <span class="filter-by-button filter-by-button-prev" id="filter-by-button-prev"><i class="fa-solid fa-arrow-left"></i></span>
               <%= filterCategoriesSpa[filterCategories.indexOf(category)] %> 
-              <span class="filter-by-button filter-by-button-next" id="filter-by-button-next">▶</span>
+              <span class="filter-by-button filter-by-button-next" id="filter-by-button-next"><i class="fa-solid fa-arrow-right"></i></span>
             </h3>
-            <button class="scroll-up-filter">▲</button>
+            <button class="scroll-up-filter"><i class="fa-solid fa-angles-up"></i></button>
             <!-- LOOP OVER FILTERED CATEGORY ELEMENTS -->
             <div class="filter-elements-container">
               <% for (let value of new Set(films.flatMap(x => x[category]).sort())) { %>
@@ -23,7 +23,7 @@
                   </a>
               <% }} %>
             </div>
-            <button class="scroll-down-filter">▼</button>
+            <button class="scroll-down-filter"><i class="fa-solid fa-angles-down"></i></button>
           </ul>
         <% } %>
       </div>

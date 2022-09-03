@@ -143,7 +143,7 @@
     margin: 0 4px 0 4px;
   }
   
-  nav a, .film-name {
+  .navlinks a {
     color: var(--color4);
     padding: 10px;
     box-sizing: border-box;
@@ -152,7 +152,6 @@
     font-size: 1.1rem;
     transition: 0.2s;
     cursor: pointer;
-    /* display: none; <-- NO SE POR QUE PUSE ESTO, CHEQUEAR */
   }
   
   /* NAVBAR END */

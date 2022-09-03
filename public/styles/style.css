@@ -403,6 +403,19 @@ li {
   width: 100%;
 }
 
+.film-name {
+  color: var(--color4);
+  padding: 10px;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.1rem;
+  transition: 0.2s;
+  cursor: pointer;
+  margin-left: -100px;
+  padding-left: 110px;
+}
+
 .film-info li {
   padding-right: 6%;
 }
@@ -500,6 +513,9 @@ span.rating{
 .review-card h5{
   margin: 0;
   font-weight: 400;
+}
+.centered-p{
+  text-align: center;
 }
 
 .not-logged-msg{
@@ -629,10 +645,6 @@ span.rating{
   .film-info li {
     padding-right: 0%;
   }
-  .film-info ul {
-    padding-inline-start: 0;
-  }
-  
 
   .film-image {
     width: 50%;

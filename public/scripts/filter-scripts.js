@@ -1,5 +1,3 @@
-
-
 // Display FILTERS menu
 const showFilters = ()=>{
   document.querySelector('.filters-container').classList.toggle("display-active");
@@ -7,8 +5,15 @@ const showFilters = ()=>{
   document.querySelector('#filter-button-text-2').classList.toggle("display-none");
 }
 //Add event listener to button - onclick
-document.querySelector("#filter-button").addEventListener('click', showFilters);
-
+const filterButton = document.querySelector("#filter-button")
+const filtersContainer = document.querySelector("#filters-container")
+filterButton.addEventListener('click', showFilters);
+const checkModal = (e)=>{
+  if(e.target!==(filtersContainer)) {
+    console.log(e);
+    showFilters()
+  }}
+  document.body.addEventListener('click', checkModal);
 //FILTERS functionality (onclick in <A> tag)
 const filterFilmsList = (e)=>{
   const selectedFilter = e.target.getAttribute("data-category");

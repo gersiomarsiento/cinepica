@@ -49,6 +49,11 @@
   #filter-selector > ul.active {
     display: flex;
   }
+
+  .filter-navlinks>p{
+    margin-block-start: .5em;
+    margin-block-end: .5em  
+  }
   
   .filter-by-title {
     display: grid;
@@ -62,14 +67,12 @@
   .scroll-up-filter, .scroll-down-filter, .filter-by-button {
     align-self: center;
     background: #6E0DD0;
-    border-radius: 999px;
-    box-shadow: #6E0DD0 0 10px 20px -10px;
+    border-radius: 20px;
     box-sizing: border-box;
     color: var(--color4);
     cursor: pointer;
     font-size: 16px;
     user-select: none;
-    height: 30px;
     width: 40px;
     border: 0;
     transition: .1s;
@@ -90,4 +93,10 @@
     color: var(--color1);
     transition: .3s;
   }
+
+  @media only screen and (max-width: 400px){
+  .filter-element{
+    font-size: .9rem;
+  }
+}
   /* FILTERS CONTAINER END */
