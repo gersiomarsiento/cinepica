@@ -8,12 +8,14 @@ const showFilters = ()=>{
 const filterButton = document.querySelector("#filter-button")
 const filtersContainer = document.querySelector("#filters-container")
 filterButton.addEventListener('click', showFilters);
-const checkModal = (e)=>{
-  if(e.target!==(filtersContainer)) {
-    console.log(e);
-    showFilters()
-  }}
-  document.body.addEventListener('click', checkModal);
+// const checkModal = (e)=>{
+//   if(e.target!==(filtersContainer)) {
+//     console.log(e);
+//     showFilters()
+//   }}
+  // document.body.addEventListener('click', checkModal);
+
+  
 //FILTERS functionality (onclick in <A> tag)
 const filterFilmsList = (e)=>{
   const selectedFilter = e.target.getAttribute("data-category");
