@@ -1,0 +1,48 @@
+
+@media only screen and (min-width: 1600px) {
+    /* .carousel-wrapper-container{
+      width: 50%;
+    } */
+    .film-info {
+      box-sizing: border-box;
+      width: 50%;
+    }
+  
+    .film-info li {
+      padding-right: 0%;
+    }
+  
+    .film-image {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      margin-bottom: 4%;
+    }
+  
+    .film-image img {
+      height: 80%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  
+  
+  @media only screen and (min-width: 800px){
+    .list-item-content>a{
+      text-align: -webkit-left;
+      margin-left: 5%;
+    }
+    
+    .filter-element{
+      padding: 20px;
+    }
+  
+    .filter-elements-container {
+      column-count: 2;
+    }
+    .filter-by {
+      height: 500px;
+      place-content: flex-start;
+      justify-content: space-between;
+    }
+  }

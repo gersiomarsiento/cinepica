@@ -1,0 +1,72 @@
+
+#review-form{
+    text-align: -webkit-center;
+    margin-bottom: 10px;
+  }
+  
+  #film-ratings{
+    align-self: stretch;
+    padding: 4%;
+  }
+  
+  #film-ratings h3 {
+    margin-block-start: 0;
+  }
+  
+  #film-ratings div {
+    border-radius: 10px;
+    padding: 6px 16px 6px 16px;
+  }
+  
+  #film-ratings div:nth-child(even){
+    background-color: var(--color3);
+  }
+  
+  #review-body, #review-title{
+    width: 96%;
+    border-radius: 6px;
+  }
+  
+  .review-card{
+    position: relative;
+  }
+  
+  .review-card h2{
+    margin: 0;
+    padding: 6px 0 6px 0;
+  }
+  
+  .review-card h5{
+    margin: 0;
+    font-weight: 400;
+  }
+  .centered-p{
+    text-align: center;
+  }
+  
+  .not-logged-msg{
+    color: var(--color2);
+  }
+  
+  #delete-review-button{
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    border: 2px solid black;
+    box-sizing: content-box;
+    font-size: .9rem;
+    font-weight: 800;
+      cursor: pointer;
+    background: var(--colorDanger);
+    color: var(--color4);
+    text-decoration: none;
+    border-radius: 100px;
+    text-align: center;
+    transition: .2s;
+  }
+  
+  #delete-review-button:hover {
+    color: var(--colorDanger);
+    background: var(--color4);
+    transition: .4s;
+  }

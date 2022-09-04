@@ -1,0 +1,174 @@
+
+/* FORM START */
+.film-form, #about-container{
+    padding: 10px 40px 40px 40px;
+    text-align: center;
+  }
+  #contact-form {
+    padding: 10px 0px 40px 00px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  #form-genres{
+    display: inline-grid;
+    grid-template-columns: 1fr 3fr 1fr 3fr;
+    justify-items: start;
+    align-items: center;
+  }
+  
+  label{
+    display: block;
+    margin: 12px 0 6px 0;
+  }
+  
+  input, textarea{
+    width: 90%;
+    transition: .2s;
+    border-radius: 6px;
+    background-color: #272727;
+    color: white;
+  }
+  
+  input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+  }
+  
+  input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+    background-color: white;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  }
+  
+  input[type="checkbox"]:checked::before {
+    transform: scale(1);
+  }
+  
+  :is(input, textarea):focus{
+    transition: .5s;
+    transform: scale(1.1, 1.1);
+  }
+  
+  input:not([value=""]){
+    background: var(--color3);
+    color: white;
+  }
+  
+  
+  .contact-form-container {
+    width: 70%;
+    text-align: center;
+  }
+  .contact-form-input{
+    background-color: #272727;
+    color: white;
+  }
+  
+  .submit-button {
+    border: 2px solid black;
+      font-size: .9rem;
+      cursor: pointer;
+    background: var(--color3);
+    color: var(--color4);
+    border-radius: 6px;
+    margin: 20px 0 0 0;
+    padding: 0.2em;
+    display: inline-block;
+    transition: .2s;
+  }
+  .submit-button:hover{
+    background: var(--color4);
+    color: var(--color1);
+    transition: .3s;
+    font-weight: 600;
+    transform: translateY(-4px);
+  }
+  
+  .img-to-thumbnail-container {
+      display: flex;
+      justify-content: space-evenly;
+      flex-flow: wrap;
+      align-items: center;
+  }
+  
+  .gallery-thumbnail {
+    padding: 6px 0 6px 0;
+  }
+  
+  /* FORM END */
+  
+  /* LOGIN FORMS */
+.login-img-container, .register-img-container{
+    width: 100%;
+    height: 30vh;
+}
+  
+  .login-img{
+    background: url(https://images.unsplash.com/photo-1485095329183-d0797cdc5676?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    opacity: .6;
+  }
+  .register-img{
+    background: url(https://images.unsplash.com/photo-1595126731003-755959b6baf8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    opacity: .6;
+  }
+  
+  .login-form, .register-form {
+      padding: 5%;
+      text-align: center;
+  }
+  
+  .login-form > h1, .register-form > h1 {
+      margin: 0;
+    }
+    
+    
+    /* SOCIAL MEDIA - CONTACT */
+    #contact-form>p{
+      width: 90%;
+      margin: 20px auto;
+    }
+    
+    #social-media-container{
+      text-align: -webkit-center;
+    }
+    
+    #social-media-container>a{
+      text-decoration: none;
+      color: var(--color4);
+      display: block;
+      transition: .1s;
+    }
+    
+    #social-media-container>a:hover{
+      background-color: var(--color3);
+      color: var(--color4);
+      border-radius: 50px;
+      transform: scale(1.1);
+      transition: .3s;
+    }
+    /* SOCIAL MEDIA -CONTACT END */
+  /* LOGIN END */  
