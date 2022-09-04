@@ -79,70 +79,70 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 app.use(flash());
 // Helmet security - 11 protective middleware (beware! it forbids usage o resources (fonts, icons, images, scripts, etc) from not whitelisted sites)
-// app.use(helmet({contentSecurityPolicy: true, crossOriginEmbedderPolicy: false}));
+app.use(helmet({contentSecurityPolicy: true, crossOriginEmbedderPolicy: false}));
 
-// //Helmet config and whitelisting
-// const scriptSrcUrls = [
-//     "https://stackpath.bootstrapcdn.com/",
-//     "https://api.tiles.mapbox.com/",
-//     "https://api.mapbox.com/",
-//     "https://kit.fontawesome.com/",
-//     "https://*.gstatic.com",
-//     "https://fonts.googleapis.com",
-//     "https://cdnjs.cloudflare.com/",
-//     "https://cdn.jsdelivr.net",
-//     "https://code.iconify.design/",
-//     "https://*.media-imdb.com"
-// ];
-// const styleSrcUrls = [
-//     "https://kit-free.fontawesome.com/",
-//     "https://stackpath.bootstrapcdn.com/",
-//     "https://api.mapbox.com/",
-//     "https://api.tiles.mapbox.com/",
-//     "https://fonts.googleapis.com/",
-//     "https://use.fontawesome.com/",
-//     "https://*.gstatic.com",
-//     "https://fonts.googleapis.com",
-//     "https://*.media-imdb.com"
-// ];
-// const connectSrcUrls = [
-//     "https://api.mapbox.com/",
-//     "https://a.tiles.mapbox.com/",
-//     "https://b.tiles.mapbox.com/",
-//     "https://events.mapbox.com/",
-//     "https://*.media-imdb.com",
-//     "https://*.api.unisvg.com",
-//     "https://*.api.iconify.com",
-//     "https://*.api.simplesvg.com",
-//     "https://ka-f.fontawesome.com",
+//Helmet config and whitelisting
+const scriptSrcUrls = [
+    "https://stackpath.bootstrapcdn.com/",
+    "https://api.tiles.mapbox.com/",
+    "https://api.mapbox.com/",
+    "https://kit.fontawesome.com/",
+    "https://*.gstatic.com",
+    "https://fonts.googleapis.com",
+    "https://cdnjs.cloudflare.com/",
+    "https://cdn.jsdelivr.net",
+    "https://code.iconify.design/",
+    "https://*.media-imdb.com"
+];
+const styleSrcUrls = [
+    "https://kit-free.fontawesome.com/",
+    "https://stackpath.bootstrapcdn.com/",
+    "https://api.mapbox.com/",
+    "https://api.tiles.mapbox.com/",
+    "https://fonts.googleapis.com/",
+    "https://use.fontawesome.com/",
+    "https://*.gstatic.com",
+    "https://fonts.googleapis.com",
+    "https://*.media-imdb.com"
+];
+const connectSrcUrls = [
+    "https://api.mapbox.com/",
+    "https://a.tiles.mapbox.com/",
+    "https://b.tiles.mapbox.com/",
+    "https://events.mapbox.com/",
+    "https://*.media-imdb.com",
+    "https://*.api.unisvg.com",
+    "https://*.api.iconify.com",
+    "https://*.api.simplesvg.com",
+    "https://ka-f.fontawesome.com",
 
-// ];
-// const fontSrcUrls = [
-//     "https://*.gstatic.com",
-//     "https://ka-f.fontawesome.com",
-// ];
+];
+const fontSrcUrls = [
+    "https://*.gstatic.com",
+    "https://ka-f.fontawesome.com",
+];
 
-// app.use(
-//     helmet.contentSecurityPolicy({
-//         directives: {
-//             defaultSrc: [],
-//             connectSrc: ["'self'", ...connectSrcUrls],
-//             scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
-//             styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
-//             workerSrc: ["'self'", "blob:"],
-//             objectSrc: [],
-//             imgSrc: [
-//                 "'self'",
-//                 "blob:",
-//                 "data:",
-//                 "https://*.cloudinary.com/gersiomarsiento/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT! 
-//                 "https://*.unsplash.com",
-//                 "https://*.media-imdb.com" 
-//             ],
-//             fontSrc: ["'self'", ...fontSrcUrls],
-//         },
-//     })
-// );
+app.use(
+    helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: [],
+            connectSrc: ["'self'", ...connectSrcUrls],
+            scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
+            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+            workerSrc: ["'self'", "blob:"],
+            objectSrc: [],
+            imgSrc: [
+                "'self'",
+                "blob:",
+                "data:",
+                "https://*.cloudinary.com/gersiomarsiento/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT! 
+                "https://*.unsplash.com",
+                "https://*.media-imdb.com" 
+            ],
+            fontSrc: ["'self'", ...fontSrcUrls],
+        },
+    })
+);
 
 //Passport
 app.use(passport.initialize());
