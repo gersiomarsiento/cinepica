@@ -15,7 +15,7 @@ router.route('/')
 
 router.get('/map', catchAsyncError(films.showMap)); //Show full film map
 
-router.get('/new', isLoggedIn, films.renderNewForm);//New film form
+router.get('/new', isLoggedIn, catchAsyncError(films.renderNewForm));//New film form
 
 router.get('/random-film', catchAsyncError(films.showRandomFilm)); //Show a random film
     
