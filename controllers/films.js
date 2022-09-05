@@ -16,9 +16,14 @@ module.exports.index = async (req, res, next) => {
     const films = await Film.find({});
     res.render('films/index', { films, filterCategories, filterCategoriesSpa })
 }
-module.exports.renderNewForm = (req, res)=>{
-    res.render('films/new', {allGenres, allGenresSpa})
+module.exports.renderNewForm = (req, res, next)=>{
+    try{
+        res.render('films/new', {allGenres, allGenresSpa})
+    } catch (e) {
+        next(e)
+    }
 }
+
 module.exports.createFilm = async (req, res, next)=>{
     const film = new Film(req.body.film);
     film.image1 = req.files['film[image1]'][0].path;
