@@ -10,9 +10,11 @@
     <ul>    
         <%for (let film of films.sort((a,b)=>a.title.localeCompare(b.title))) {%>
             <li class="film-list-item" data-title="<%=film.title%>" data-year="<%=film.year%>" data-actores="<%=film.actores%>" data-director="<%=film.director%>" data-genres="<%=film.genres%>" data-country="<%=film.country%>" data-runtime="<%=film.runtime%>">
-                <div class="list-item-content" href="/films/<%= film.id %>">
-                    <img src="<%= film.coverThumbnail %>" alt="">
-                    <a class="film-name" href="/films/<%= film.id %>"><%= (film.title.charAt(0).toUpperCase(0) + film.title.slice(1))%> (<b><i><%= film.year%></i></b>)</a>
+                <div class="list-item-content" >
+                    <a class="film-name" href="/films/<%= film.id %>">
+                        <img src="<%= film.coverThumbnail %>" alt="">
+                        <div class="index-title"><%= (film.title.charAt(0).toUpperCase(0) + film.title.slice(1))%> (<b><i><%= film.year%></i></b>)</div>
+                    </a>
                 </div>
             </li>
         <% } %>

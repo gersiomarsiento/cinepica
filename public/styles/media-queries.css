@@ -31,7 +31,7 @@
     .list-item-content>a{
       text-align: -webkit-left;
       text-align: -moz-left;
-      margin-left: 5%;
+      /* margin-left: 5%; */
     }
   
     .filter-elements-container {

@@ -79,8 +79,14 @@ const popUpFilmsList = (e)=>{ //Find all films by country, store the html and hi
     const filmsHtml = [];
     amountOfFilms = data.filmsList.length;
     for (let film of data.filmsList){
-        const html = `<div class="film-html"><h3>`+ film.title.toUpperCase() + `</h3><div class="map-scroll-container"><span class="map-scroll map-scroll-left"><i class="fa-solid fa-arrow-left"></i></span><a href="/films/`+ film.id +`"><img src="`+ film.image1 +`"></a><span class="map-scroll map-scroll-right"><i class="fa-solid fa-arrow-right"></i></span></div></div>`
-        filmsHtml.push(html)
+        if(amountOfFilms>1){
+            const html = `<div class="film-html"><h3>`+ film.title.toUpperCase() + `</h3><div class="map-scroll-container"><span class="map-scroll map-scroll-left"><i class="fa-solid fa-arrow-left"></i></span><a href="/films/`+ film.id +`"><img src="`+ film.image1 +`"></a><span class="map-scroll map-scroll-right"><i class="fa-solid fa-arrow-right"></i></span></div></div>`;
+            filmsHtml.push(html)
+        } else {
+            const html = `<div class="film-html"><h3>`+ film.title.toUpperCase() + `</h3><div class="map-scroll-container"></span><a href="/films/`+ film.id +`"><img src="`+ film.image1 +`"></div></div>`;
+            filmsHtml.push(html)
+        }
+
     }
     return filmsHtml.join("")
 }    
@@ -92,6 +98,9 @@ const setPopupListeners = () =>{ //create event listeners for buttons to access 
     document.querySelectorAll(".map-scroll-left").forEach(
         (e)=>e.addEventListener('click', prevFilm)
     );
+    if(amountOfFilms<2){
+
+    }
 }
 
 let currentFilm = 1; // Store current film displayed

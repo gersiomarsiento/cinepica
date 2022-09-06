@@ -69,14 +69,18 @@ li {
 }
 
 .film-name {
+  display: flex;
   color: var(--color4);
   padding: 10px;
   box-sizing: border-box;
   text-decoration: none;
-  text-align: center;
+  align-items: center;
   font-size: 1.1rem;
   transition: 0.2s;
   cursor: pointer;
+}
+.index-title {
+  margin-left: 10vw;
 }
 
 .film-info li {
@@ -156,7 +160,7 @@ span.rating{
 
 .map-scroll-container {
   display: flex;
-  justify-content: space-between;
+  place-content: center;
   min-height: 150px;
 }
 
@@ -172,6 +176,7 @@ span.rating{
 
 .map-scroll-container img{
   box-shadow: 0 0 20px 2px var(--color2);
+  margin: 0 10px 0 10px;
 }
 
 /* FLASH MESSAGES */
