@@ -55,7 +55,7 @@
     margin-block-end: .5em  
   }
   
-  .filter-by-title {
+  .filter-by-title{
     display: grid;
     grid-template-columns: 2fr 8fr 2fr;
     align-items: center;
@@ -64,7 +64,7 @@
     color: var(--color4);
   }
   
-  .scroll-up-filter, .scroll-down-filter, .filter-by-button {
+  .scroll-up-filter, .scroll-down-filter, .filter-by-button, .map-scroll {
     align-self: center;
     background: #6E0DD0;
     border-radius: 20px;
@@ -86,7 +86,7 @@
     margin-top: 5%;
   }
   
-  .scroll-up-filter:hover, .scroll-down-filter:hover, .filter-by-button:hover {
+  .scroll-up-filter:hover, .scroll-down-filter:hover, .filter-by-button:hover, .map-scroll:hover {
     background: var(--color4);
     border-radius: 999px;
     box-shadow: #fafafa 0 0px 20px -5px;

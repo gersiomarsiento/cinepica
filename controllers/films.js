@@ -77,7 +77,7 @@ module.exports.showMap = async (req, res)=>{
         }
         let rawData = films.filter(x=> x.country.includes(film.name))
         for (let item of rawData){
-        film.filmsList.push({title: item.title, imdb: item.imdb, image1: item.coverThumbnail})
+        film.filmsList.push({title: item.title, id: item.id, imdb: item.imdb, image1: item.coverThumbnail})
        } //CHECK LATER IF I NEED TO REMOVE OR ADD KEY VALUE PAIRS
     }
     // console.log(filmCountries)

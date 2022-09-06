@@ -135,10 +135,28 @@ span.rating{
 }
 
 .mapboxgl-popup-content{
-  background-color: #272727 !important;
+  background-color: var(--color3) !important;
   width: 200px;
   height: 300px ;
   text-align: -webkit-center;
+  border: 2px solid var(--color2);
+  border-radius: 16px !important;
+  box-shadow: var(--color4) 0px 0px 30px 2px !important;
+}
+
+.map-scroll-container {
+  display: flex;
+  justify-content: space-between;
+  min-height: 150px;
+}
+
+.film-html {
+  display: none;
+}
+
+.film-html>h3{
+  min-height: 46px;
+  margin-top: 0;
 }
 
 /* FLASH MESSAGES */

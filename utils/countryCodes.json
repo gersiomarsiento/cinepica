@@ -704,13 +704,13 @@
     {
         "code": "PRK",
         "name": "Korea, Democratic People's Republic of",
-        "name_es": "Corea del Sur",
+        "name_es": "Corea del Norte",
         "eu": false
     },
     {
         "code": "KOR",
         "name": "Korea, Republic of",
-        "name_es": "Corea, república de",
+        "name_es": "Corea del Sur",
         "eu": false
     },
     {

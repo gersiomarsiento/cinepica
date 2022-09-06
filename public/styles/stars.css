@@ -6,6 +6,18 @@
     font-size: 0.1em;
     color: transparent;
   }
+  .starability-result-small{
+    display: none;
+  }
+
+  @media only screen and (max-width: 400px){
+    .starability-result {
+      display: none;
+    }
+    .starability-result-small{
+      display: block;
+    }
+  }
   
   .starability-result:after {
     content: ' ';
