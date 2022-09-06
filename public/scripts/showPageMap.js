@@ -120,6 +120,7 @@ const prevFilm = () => {
 }
 
 map.on('click', 'countries', (e) => {
+    currentFilm = 1;
     map.easeTo({center: [e.lngLat.lng, e.lngLat.lat-10 ]}) // Center camera on country
     new mapboxgl.Popup({offset: 25, closeButton: false}) // Show popup
     .setLngLat(e.lngLat)
@@ -136,49 +137,3 @@ map.on('mouseenter', 'countries', () => {
 map.on('mouseleave', 'countries', () => {
     map.getCanvas().style.cursor = '';
     });
-
-
-
-
-    //////////////////////////////////////////////// 
-   
-
-// // inspect a cluster on click
-// map.on('click', 'clusters', (e) => {
-//     const features = map.queryRenderedFeatures(e.point, {
-//         layers: ['clusters']
-//     });
-//     const clusterId = features[0].properties.cluster_id;
-//     map.getSource('earthquakes').getClusterExpansionZoom(
-//         clusterId,
-//         (err, zoom) => {
-//             if (err) return;
-     
-//     map.easeTo({
-//         center: features[0].geometry.coordinates,
-//     zoom: zoom
-// });
-// }
-// );
-// });
-
-// // When a click event occurs on a feature in
-// // the unclustered-point layer, open a popup at
-// // the location of the feature, with
-// // description HTML from its properties.
-// map.on('click', 'unclustered-point', (e) => {
-//     const coordinates = e.features[0].geometry.coordinates.slice();
-//     const mag = e.features[0].properties.mag;
-//     const tsunami =
-//     e.features[0].properties.tsunami === 1 ? 'yes' : 'no';
-    
-
-    
-//     new mapboxgl.Popup()
-//     .setLngLat(coordinates)
-//     .setHTML(
-//         `magnitude: ${mag}<br>Was there a tsunami?: ${tsunami}`
-//         )
-//         .addTo(map);
-//     });
-
