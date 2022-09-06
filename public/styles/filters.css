@@ -1,102 +1,228 @@
 
 /* FILTERS CONTAINER START*/
 .filters-container{
-    visibility: hidden;
-    position: fixed;
+  visibility: hidden;
+  position: fixed;
+  opacity: 0;
+  right: 3%;
+  bottom: 13%;
+  width: 0%;
+  height: 0%;
+  z-index: 1;
+  color: var(--color4);
+  text-decoration: none;
+  background: #2d233c;
+  border: 1px solid var(--color1);
+  border-radius: 1%;
+  box-sizing: content-box;
+  transition: opacity .2s, width .47s, height 0.4s;
+  text-align: -moz-center;
+  text-align: -webkit-center;
+}
+
+.display-active{
+  visibility: visible;
+  opacity: 1;
+  transition: width .47s, height 0.4s;
+  height: 79%;
+  width: 94%
+}
+
+.filter-element{
+  padding: 9px;
+}
+
+.filter-elements-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hide{
+  visibility: hidden;
+  opacity: 0;
+  position: absolute; 
+  width: 0;
+  height: 0;
+}
+
+.current {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+.current.animate-bottom {
+  animation: slideInBottom .2s linear 0s;
+}
+.current.animate-top {
+  animation: slideInTop .2s linear 0s;
+}
+@keyframes slideInTop {
+  0% {
+    transform: translateY(-100px);
     opacity: 0;
-    right: 3%;
-    bottom: 13%;
-    width: 0%;
-    height: 0%;
-    z-index: 1;
-    color: var(--color4);
-    text-decoration: none;
-    background: #2d233c;
-    border: 1px solid var(--color1);
-    border-radius: 1%;
-    box-sizing: content-box;
-    text-align: start;
-    transition: opacity .2s, width .47s, height 0.4s;
-    text-align: -webkit-center;
   }
-  
-  .display-active{
-    visibility: visible;
+  50% {
+    transform: translateY(-50px);
+    opacity: .1;
+  }
+  100% {
+    transform: translateY(0px);
     opacity: 1;
-    transition: width .47s, height 0.4s;
-    height: 79%;
-    width: 94%
-  }
-  
-  .filter-element{
-    padding: 9px;
-  }
-  
-  #filter-selector {
-    width: 85%;
-  }
-  
-  #filter-selector > ul {
-    display: none;
-    flex-direction: column;
-    align-content: center;
-    text-align: center;
-    width: 80%;
-    padding-inline-start: 0;
-    font-weight: 600;
-  }
-  
-  #filter-selector > ul.active {
-    display: flex;
-  }
-
-  .filter-navlinks>p{
-    margin-block-start: .5em;
-    margin-block-end: .5em  
-  }
-  
-  .filter-by-title{
-    display: grid;
-    grid-template-columns: 2fr 8fr 2fr;
-    align-items: center;
-    align-self: center;
-    margin-block-start: 0;
-    color: var(--color4);
-  }
-  
-  .scroll-up-filter, .scroll-down-filter, .filter-by-button, .map-scroll {
-    align-self: center;
-    background: #6E0DD0;
-    border-radius: 20px;
-    box-sizing: border-box;
-    color: var(--color4);
-    cursor: pointer;
-    font-size: 16px;
-    user-select: none;
-    width: 40px;
-    border: 0;
-    transition: .1s;
-  }
-  
-  .scroll-up-filter{
-    margin-bottom: 5%;
-  }
-  
-  .scroll-down-filter{
-    margin-top: 5%;
-  }
-  
-  .scroll-up-filter:hover, .scroll-down-filter:hover, .filter-by-button:hover, .map-scroll:hover {
-    background: var(--color4);
-    border-radius: 999px;
-    box-shadow: #fafafa 0 0px 20px -5px;
-    color: var(--color1);
-    transition: .3s;
-  }
-
-  @media only screen and (max-width: 400px){
-  .filter-element{
-    font-size: .9rem;
   }
 }
-  /* FILTERS CONTAINER END */
+@keyframes slideInBottom {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(50px);
+    opacity: 0.1;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+
+#filter-selector {
+  width: 85%;
+}
+
+#filter-selector > ul {
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding-inline-start: 0;
+  font-weight: 600;
+}
+
+#filter-selector > ul.active {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  width: 80%;
+  height: 100%;
+}
+#filter-selector > ul.active.animate-right {
+  animation: slideInRight .2s linear 0s;
+}
+#filter-selector > ul.active.animate-left {
+  animation: slideInLeft .2s linear 0s;
+}
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-50px);
+    opacity: .1;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(50px);
+    opacity: 0.1;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+/* #filter-selector > ul {
+  display: none;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+  width: 80%;
+  padding-inline-start: 0;
+  font-weight: 600;
+}
+
+#filter-selector > ul.active {
+  display: flex;
+} */
+
+.filter-navlinks>p{
+  margin-block-start: .5em;
+  margin-block-end: .5em  
+}
+
+.filter-by-title{
+  display: grid;
+  grid-template-columns: 2fr 8fr 2fr;
+  align-items: center;
+  align-self: center;
+  margin-block-start: 0;
+  color: var(--color4);
+}  
+
+.scroll-up-filter, .scroll-down-filter, .filter-by-button, .map-scroll {
+  align-self: center;
+  background: #6E0DD0;
+  border-radius: 20px;
+  box-sizing: border-box;
+  color: var(--color4);
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+  width: 40px;
+  border: 0;
+  transition: .1s;
+}
+
+.scroll-up-filter{
+  margin-bottom: 5%;
+}
+
+.scroll-down-filter{
+  margin-top: 5%;
+}
+
+.scroll-up-filter:hover, .scroll-down-filter:hover, .filter-by-button:hover, .map-scroll:hover {
+  background: var(--color4);
+  border-radius: 999px;
+  box-shadow: #fafafa 0 0px 20px -5px;
+  color: var(--color1);
+  transition: .3s;
+}
+
+@media only screen and (min-width: 400px){
+  #filter-selector > ul {
+      justify-content: flex-start;
+  }
+  .scroll-up-filter{
+    margin-top: 50px;
+  }
+}
+@media only screen and (min-width: 800px){
+  .scroll-up-filter{
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 400px){
+.filter-element{
+  font-size: .9rem;
+}
+}
+
+/* FILTERS CONTAINER END */

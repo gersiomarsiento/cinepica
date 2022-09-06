@@ -24,6 +24,24 @@ function startCarousels(document) {
       });
     }
 
+
+    let touchStart = "";
+      document.querySelectorAll(".carousel__photo").forEach(
+        el=>{
+          el.addEventListener('touchstart', function(e) {
+            touchStart = e.touches[0].clientX;
+          });
+          el.addEventListener('touchend', function(e) {
+            const touchEnd = e.changedTouches[0].clientX;
+            if (touchStart > touchEnd+5) {
+                moveNext()
+            } else if (touchStart < touchEnd-5) {
+                movePrev()
+            }
+          });
+        }
+      )
+
     // Disable interaction by setting 'moving' to true for the same duration as our transition (0.5s = 500ms)
     function disableInteraction() {
       moving = true;

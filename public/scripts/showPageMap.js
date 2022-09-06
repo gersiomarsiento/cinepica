@@ -1,6 +1,5 @@
 mapboxgl.accessToken = mapToken;
 const countryCodes = filmCountries.map(film=>film.shortName)
-console.log(filmCountries)
 const colorsForCountries = [
     "#FF89FF",
     "#E73AE4",
@@ -78,8 +77,6 @@ let amountOfFilms = 0;
 const popUpFilmsList = (e)=>{ //Find all films by country, store the html and hide all
     const data = filmCountries.find(film => film.shortName == (e.features[0].properties.iso_3166_1_alpha_3));
     const filmsHtml = [];
-    console.log(data)
-
     amountOfFilms = data.filmsList.length;
     for (let film of data.filmsList){
         const html = `<div class="film-html"><h3>`+ film.title.toUpperCase() + `</h3><div class="map-scroll-container"><span class="map-scroll map-scroll-left"><i class="fa-solid fa-arrow-left"></i></span><a href="/films/`+ film.id +`"><img src="`+ film.image1 +`"></a><span class="map-scroll map-scroll-right"><i class="fa-solid fa-arrow-right"></i></span></div></div>`
@@ -128,7 +125,6 @@ map.on('click', 'countries', (e) => {
     .addTo(map);
     setPopupListeners() // Scrolling event listeners
     document.querySelector(".film-html").classList.add("display-block"); //Display first film
-    console.log()
     });
 
 map.on('mouseenter', 'countries', () => {

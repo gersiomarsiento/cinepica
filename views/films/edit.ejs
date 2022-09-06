@@ -2,7 +2,7 @@
 <a id="back-button" href="/films/<%=film._id%>">↻ <span>VOLVER</span></a>
 <div class="film-container moving-glow">
     <div class="film-info">
-        <h1>Editar película</h1>
+        <h1 class="text-shadow">Editar película</h1>
         <form class="film-form" action="/films/<%=film._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
             <label for="title">Título</label>
             <input type="text" name="film[title]" id="title" placeholder="" value="<%=film.title%>">

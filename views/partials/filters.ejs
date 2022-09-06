@@ -5,7 +5,7 @@
       <div id="filter-selector">
         <!-- ONE FILTER PER EACH OF THE FILTER CATEGORIES -->
         <% for (let category of filterCategories){ %>
-          <ul class="filter-by <%= (category=="director" && "active") %>">
+          <ul class="filter-by <%= (category=="director")?"active":""%>">
             <h3 class="filter-by-title">
               <span class="filter-by-button filter-by-button-prev" id="filter-by-button-prev"><i class="fa-solid fa-arrow-left"></i></span>
               <%= filterCategoriesSpa[filterCategories.indexOf(category)] %> 
@@ -18,7 +18,7 @@
                 <%if (value == "" || value == null) {%>
                   <% continue; %>
                 <%} else {%>
-                  <a class="filter-element filter-toggler display-none" data-category="<%= category %>" data-value="<%= value %>">
+                  <a class="filter-element filter-toggler hide" data-category="<%= category %>" data-value="<%= value %>">
                     <%= category=="genres"? value.charAt(0).toUpperCase(0) + value.slice(1) : value %>
                   </a>
               <% }} %>
