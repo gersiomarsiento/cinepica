@@ -1,6 +1,6 @@
 const Film = require('../models/film');
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
-const mapBoxToken = process.env.MAPBOX_TOKEN;
+const mapBoxToken = process.env.MAPBOX_TOKEN || "pk.eyJ1IjoiZ2Vyc2lvbWFyc2llbnRvIiwiYSI6ImNsN2N3dDZ0czB5MHIzd3J2cjRka3ZuY2cifQ.Azge86fgwcbmKBlsYeeVwA";
 const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
 const { cloudinary } = require('../cloudinary');
 const countryCodes = require('../utils/countryCodes.json');
