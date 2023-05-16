@@ -25,7 +25,8 @@ const usersRoutes = require('./routes/users');
 //DB
 const MongoStore = require("connect-mongo")
 //Production connection to MongoAtlas DB  VS  Development connection to local db
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/cinepica-app'
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/cinepica-app'
+
 
 mongoose.connect(dbUrl)
 
@@ -43,11 +44,13 @@ app.set('views', path.join(__dirname, 'views'));
 
 //*********MIDDLEWARE*********:
 
-app.use(express.urlencoded({ extended:true })); //urlencoded extended true to enable calling req.body and parsing it
-app.use(methodOverride('_method')) //MethodOverride -- Middleware that allows the usage of PUT and DELETE override for POST requests (update)
-app.use(express.static(path.join(__dirname, 'public'))); //Define PUBLIC folder 
-app.use(morgan('tiny')); //Morgan: displays info on each request
-app.use(mongoSanitize()); //Sanitize: prohibits the use of strange chars such as $ or . while querying
+app.use(
+    express.urlencoded({ extended:true }), //urlencoded extended true to enable calling req.body and parsing it
+    methodOverride('_method'), //MethodOverride -- Middleware that allows the usage of PUT and DELETE override for POST requests (update)
+    express.static(path.join(__dirname, 'public')), //Define PUBLIC folder 
+    morgan('tiny'), //Morgan: displays info on each request
+    mongoSanitize() //Sanitize: prohibits the use of strange chars such as $ or . while querying
+)
 
 const secret = process.env.SECRET || 'notagoodsecret';
 
@@ -78,7 +81,7 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 app.use(flash());
-// Helmet security - 11 protective middleware (beware! it forbids usage o resources (fonts, icons, images, scripts, etc) from not whitelisted sites)
+// Helmet security - 11 protective middleware (beware! it forbids usage of resources (fonts, icons, images, scripts, etc) from not whitelisted sites)
 app.use(helmet({contentSecurityPolicy: true, crossOriginEmbedderPolicy: false}));
 
 //Helmet config and whitelisting
