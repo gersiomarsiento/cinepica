@@ -1,23 +1,46 @@
-<%- layout("layouts/boilerplate") %> 
+<%- layout("layouts/boilerplate") %>
 <!-- Bring film filters from partials -->
 <%- include('../partials/filters') %>
 
-<a id="filter-button"><span id="filter-button-text-1"><i class="fa-solid fa-filter fa-1x"></i> FILTRAR</span> <span id="filter-button-text-2" class="display-none"><i class="fa-solid fa-filter-circle-xmark"></i> CERRAR</span></a>
-<a id="add-button" href="/films/new"><span><i class="fa-solid fa-plus"></i> AÑADIR</span></a>
+<a id="filter-button"
+  ><span id="filter-button-text-1"
+    ><i class="fa-solid fa-filter fa-1x"></i> FILTRAR</span
+  >
+  <span id="filter-button-text-2" class="display-none"
+    ><i class="fa-solid fa-filter-circle-xmark"></i> CERRAR</span
+  ></a
+>
+<a id="add-button" href="/films/new"
+  ><span><i class="fa-solid fa-plus"></i> AÑADIR</span></a
+>
 
 <!-- Container for filtered film list (all films by default) -->
 <div class="film-container full-film-list moving-glow">
-    <ul>    
-        <%for (let film of films.sort((a,b)=>a.title.localeCompare(b.title))) {%>
-            <li class="film-list-item" data-title="<%=film.title%>" data-year="<%=film.year%>" data-actores="<%=film.actores%>" data-director="<%=film.director%>" data-genres="<%=film.genres%>" data-country="<%=film.country%>" data-runtime="<%=film.runtime%>">
-                <div class="list-item-content" >
-                    <a class="film-name" href="/films/<%= film.id %>">
-                        <img src="<%= film.coverThumbnail %>" alt="">
-                        <div class="index-title"><%= (film.title.charAt(0).toUpperCase(0) + film.title.slice(1))%> (<b><i><%= film.year%></i></b>)</div>
-                    </a>
-                </div>
-            </li>
-        <% } %>
-    </ul>
+  test
+  <ul>
+    <%for (let film of films.sort((a,b)=>a.title.localeCompare(b.title))) {%>
+    <li
+      class="film-list-item"
+      data-title="<%=film.title%>"
+      data-year="<%=film.year%>"
+      data-actores="<%=film.actores%>"
+      data-director="<%=film.director%>"
+      data-genres="<%=film.genres%>"
+      data-country="<%=film.country%>"
+      data-runtime="<%=film.runtime%>"
+    >
+      <div class="list-item-content">
+        <a class="film-name" href="/films/<%= film.id %>">
+          <img src="<%= film.coverThumbnail %>" alt="" />
+          <div class="index-title">
+            <%= (film.title.charAt(0).toUpperCase(0) + film.title.slice(1))%>
+            (<b><i><%= film.year%></i></b
+            >)
+          </div>
+        </a>
+      </div>
+    </li>
+    <% } %>
+  </ul>
 </div>
 <script src="/scripts/filter-scripts.js"></script>
