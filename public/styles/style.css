@@ -12,20 +12,19 @@ html * {
   font-family: "Poppins", sans-serif;
 }
 
-:root{
-  --color1: #6E0DD0;
-  --color2: #B707B5;
+:root {
+  --color1: #6e0dd0;
+  --color2: #b707b5;
   --color3: #350663;
-  --color4:#dddd;
-  --colorDanger:rgb(186, 2, 2);
+  --color4: #dddd;
+  --colorDanger: rgb(186, 2, 2);
 }
 
-
-#cinepica-title-container{
+#cinepica-title-container {
   text-align: center;
 }
 
-#cinepica-title{
+#cinepica-title {
   display: inline-block;
   text-decoration: none;
   transition: all 1s;
@@ -35,10 +34,10 @@ html * {
   z-index: 1;
 }
 
-#cinepica-title:hover{
-  transform:  scale(1.2);
+#cinepica-title:hover {
+  transform: scale(1.2);
   color: var(--color1);
-  text-shadow: 0 0 2px #000000, 0 0 15px #8737D8;
+  text-shadow: 0 0 2px #000000, 0 0 15px #8737d8;
 }
 
 li {
@@ -48,19 +47,17 @@ li {
 .text-shadow {
   text-shadow: 0 0px 12px var(--color1);
 }
-.box-shadow{
+.box-shadow {
   box-shadow: 0 0 20px -9px var(--color2);
-
 }
 
 .film-info > ul {
   padding-left: 4%;
 }
 
-.film-info-category{
+.film-info-category {
   padding-top: 8px;
 }
-
 
 .film-info {
   flex-direction: row;
@@ -70,6 +67,7 @@ li {
 
 .film-name {
   display: flex;
+  flex-direction: column;
   color: var(--color4);
   padding: 10px;
   box-sizing: border-box;
@@ -79,19 +77,24 @@ li {
   transition: 0.2s;
   cursor: pointer;
 }
+
+.film-name img {
+  width: 100%;
+}
+
 .index-title {
-  margin-left: 10vw;
+  /* margin-left: 10vw; */
 }
 
 .film-info li {
   padding-right: 6%;
 }
 
-.film-links>a:hover {
-	background: white;
-	color: var(--color2);
-	cursor: pointer;
-	transition: .5s;
+.film-links > a:hover {
+  background: white;
+  color: var(--color2);
+  cursor: pointer;
+  transition: 0.5s;
 }
 
 .film-image {
@@ -116,41 +119,40 @@ li {
 }
 
 /* IMDB START */
-#rating-link-container{
+#rating-link-container {
   margin-top: 2%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.imdbRatingPlugin{
-  border: .5px solid #aaaa;
+.imdbRatingPlugin {
+  border: 0.5px solid #aaaa;
 }
 
-.imdbRatingPlugin>a{
+.imdbRatingPlugin > a {
   display: inline-flex;
   vertical-align: sub;
 }
 
-span.rating{
+span.rating {
   font-weight: 400;
 }
 
-.ofTen{
+.ofTen {
   display: none;
 }
 
-
 /* MAPBOX MAP */
 #map {
-  width: 100%; 
+  width: 100%;
   height: 680px;
 }
 
-.mapboxgl-popup-content{
+.mapboxgl-popup-content {
   background-color: var(--color3) !important;
   width: 200px;
-  height: 300px ;
+  height: 300px;
   text-align: -moz-center;
   text-align: -webkit-center;
   border: 2px solid var(--color2);
@@ -168,19 +170,19 @@ span.rating{
   display: none;
 }
 
-.film-html>h3{
+.film-html > h3 {
   min-height: 46px;
   margin-top: 0;
   text-shadow: 0 4px 20px var(--color2);
 }
 
-.map-scroll-container img{
+.map-scroll-container img {
   box-shadow: 0 0 20px 2px var(--color2);
   margin: 0 10px 0 10px;
 }
 
 /* FLASH MESSAGES */
-.flash{
+.flash {
   position: fixed;
   right: -1600px;
   color: white;
@@ -201,7 +203,8 @@ span.rating{
 }
 
 @keyframes slideInFromRight {
-  10%,90% {
+  10%,
+  90% {
     transform: translateX(-1630px);
   }
 }
@@ -214,13 +217,13 @@ span.rating{
   animation: moveAround 4s infinite;
 }
 
-.error-container{
+.error-container {
   overflow-wrap: anywhere;
   padding: 10%;
   text-align: center;
 }
 
-.err-stack{
+.err-stack {
   font-weight: 400;
   background: plum;
   color: darkred;
@@ -241,7 +244,7 @@ span.rating{
     transform: rotate(360deg) scale(2, 2);
   }
   75% {
-    transform: rotate(180deg) scale(.5, .5);
+    transform: rotate(180deg) scale(0.5, 0.5);
   }
   100% {
     transform: rotate(90deg) scale(1, 1);
